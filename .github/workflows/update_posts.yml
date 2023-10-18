@@ -10,14 +10,14 @@ jobs:
     name: "Update posts" 
     steps:
       - name: Clone posts repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           clean: true
           path: "posts"
           token: ${{ secrets.CI_TOKEN }}
 
       - name: Clone wiki repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           clean: true
           repository: "elysium-mp/wiki-website"
