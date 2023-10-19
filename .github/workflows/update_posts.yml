@@ -32,12 +32,27 @@ jobs:
           mkdir -p ./wiki/new_wiki
           echo "Let's see what's in the /wiki directory."
           ls -R ./wiki  # List contents of the ./wiki directory for debugging.
+          # Remove the existing content in the "factions" directory
+          rm -r ./wiki/factions/*
+          
+          # Move the contents of "new_wiki" to the "wiki" directory
           mv -f ./posts/* ./wiki/new_wiki
           mv -f ./wiki/new_wiki/* ./wiki
-          cd wiki
+          
+          # Remove the now-empty "new_wiki" directory
+          rmdir ./wiki/new_wiki
+          
+          # Change to the "wiki" directory
+          cd ./wiki
+          
+          # Set Git user information
           git config --global user.email "elysium.mp@github.com"
           git config --global user.name "elysium.mp"
+          
+          # Check Git status
           git status
+          
+          # Add, commit, and push the changes
           git add .
           git commit -m "Update posts with ${{ github.sha }}" || true
           git push || true
