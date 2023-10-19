@@ -28,6 +28,9 @@ jobs:
       - name: Update posts
         if: always()
         shell: bash
+      - name: Update posts
+        if: always()
+        shell: bash
         run: |
           mkdir -p ./wiki/new_wiki
           echo "Let's see what's in the /wiki directory."
@@ -36,12 +39,15 @@ jobs:
           # Remove all existing content in the "wiki" directory
           rm -r ./wiki/*
           
-          # Move the contents of "new_wiki" to the "wiki" directory
-          mv -f ./posts/* ./wiki/new_wiki
-          mv -f ./wiki/new_wiki/* ./wiki
+          # Move the contents of "new_wiki" to the "wiki" directory if "new_wiki" exists
+          if [ -d "./wiki/new_wiki" ]; then
+            mv -f ./wiki/new_wiki/* ./wiki
+          fi
           
-          # Remove the now-empty "new_wiki" directory
-          rmdir ./wiki/new_wiki
+          # Remove the now-empty "new_wiki" directory if it exists
+          if [ -d "./wiki/new_wiki" ]; then
+            rmdir ./wiki/new_wiki
+          fi
           
           # Change to the "wiki" directory
           cd ./wiki
