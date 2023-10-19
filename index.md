@@ -3,8 +3,8 @@ layout: home
 
 hero:
   name: "elysium.mp - wiki"
-  text: "Wikiul Elysium Multiplayer este o sursă esențială de informații, oferind ghiduri detaliate, reguli, tutoriale și informații despre evenimente și caracteristici speciale. Acesta este un instrument valoros dezvoltat pentru tine, ajutându-te să te orientezi în Los Santos și să te alături experienței serverul cu succes."
-  tagline: Bine ai venit.
+  text: "Bine ai venit pe Wikipediaul serverului elysium.mp"
+  tagline: Wikiul Elysium Multiplayer este o sursă esențială de informații, oferind ghiduri detaliate, reguli, tutoriale și informații despre evenimente și caracteristici speciale. Acesta este un instrument valoros dezvoltat pentru tine, ajutându-te să te orientezi în Los Santos și să te alături experienței serverul cu succes.
   actions:
     - theme: brand
       text: Start
