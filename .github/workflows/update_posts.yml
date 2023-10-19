@@ -29,6 +29,7 @@ jobs:
         if: always()
         shell: bash
         run: |
+          rm -f ./wiki/new_wiki
           mkdir ./wiki/new_wiki
           mv -f ./posts/* ./wiki/new_wiki
           mv -f ./wiki/new_wiki ./wiki
