@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           clean: true
-          repository: "elysium-mp/wiki-website"
+          repository: "cibucristi/elysium-wiki-website"
           path: "wiki"
           ref: "main"
           token: ${{ secrets.CI_TOKEN }}
@@ -39,7 +39,7 @@ jobs:
           rm -rf ./wiki/.vitepress  # Remove the old .vitepress folder.
           rm -rf ./wiki/public      # Remove the old public folder.
           rm -f ./wiki/vite.config.ts  # Remove the old vite.config.ts file.
-          mv -f ./wiki/new_wiki ./wiki/
+          mv -f ./wiki/new_wiki ./wiki/.vitepress
           cd wiki
           git config --global user.email "elysium.mp@github.com"
           git config --global user.name "elysium.mp"
