@@ -30,7 +30,7 @@ jobs:
         shell: bash
         run: |
           echo "hmmm.."
-          ls -R ./wiki/wiki
+          ls ./wiki/wiki
           mkdir -p ./wiki/new_wiki
           mv -f ./posts/* ./wiki/new_wiki
           rm -rf ./wiki/wiki
