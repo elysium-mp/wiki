@@ -32,8 +32,9 @@ jobs:
           mkdir -p ./wiki/new_wiki
           echo "Let's see what's in the /wiki directory."
           ls -R ./wiki  # List contents of the ./wiki directory for debugging.
-          # Remove the existing content in the "factions" directory
-          rm -r ./wiki/factions/*
+      
+          # Remove all existing content in the "wiki" directory
+          rm -r ./wiki/*
           
           # Move the contents of "new_wiki" to the "wiki" directory
           mv -f ./posts/* ./wiki/new_wiki
