@@ -33,16 +33,15 @@ jobs:
           echo "Let's see what's in the /wiki directory."
           ls -R ./wiki  # List contents of the ./wiki directory for debugging.
           mv -f ./posts/* ./wiki/new_wiki
-          # Backup the existing content in the destination directory
-          mv ./wiki/* ./wiki_backup/
+          # Remove the existing content in the "wiki" directory
+          rm -r ./wiki/*
           
           # Move the contents of "new_wiki" to the "wiki" directory
-          mv ./wiki/new_wiki/* ./wiki/
+          mv -f ./wiki/new_wiki/* ./wiki/
           
           # Remove the now-empty "new_wiki" directory
           rmdir ./wiki/new_wiki
 
-          rmdir ./wiki/new_wiki  # Remove the empty new_wiki directory.
           cd wiki
           git config --global user.email "elysium.mp@github.com"
           git config --global user.name "elysium.mp"
