@@ -31,8 +31,8 @@ jobs:
         run: |
           mkdir -p ./wiki/new_wiki
           
-          mv -f ./posts/* ./wiki/new_wiki
-          mv -f ./wiki/new_wiki/* ./wiki
+          # Use rsync to synchronize and delete existing content in "wiki"
+          rsync -av --delete ./wiki/new_wiki/ ./wiki/
           
           rmdir ./wiki/new_wiki
           cd ./wiki
