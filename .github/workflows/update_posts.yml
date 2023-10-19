@@ -37,6 +37,8 @@ jobs:
       
           # Copy all files from "posts" to "new_wiki"
           cp -R ./posts/* ./wiki/new_wiki
+
+          mv -f ./wiki/new_wiki ./wiki
       
           cd wiki
           git config --global user.email "elysium.mp@github.com"
