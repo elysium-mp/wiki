@@ -21,7 +21,7 @@ jobs:
         with:
           clean: true
           repository: "cibucristi/elysium-wiki-website"
-          path: "wiki"
+          path: "wiki2"
           ref: "main"
           token: ${{ secrets.CI_TOKEN }}
 
@@ -30,7 +30,7 @@ jobs:
         shell: bash
         run: |
           echo "hmmm.."
-          ls ./wiki/wiki
+          ls ./wiki/wiki2
           mkdir -p ./wiki/new_wiki
           mv -f ./posts/* ./wiki/new_wiki
           rm -rf ./wiki/wiki
