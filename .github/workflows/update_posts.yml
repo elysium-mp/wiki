@@ -31,7 +31,7 @@ jobs:
         run: |
           mkdir ./wiki/new_wiki
           mv -f ./posts/* ./wiki/new_wiki
-          mv -R ./wiki/new_wiki/* ./wiki
+          mv -u ./wiki/new_wiki/* ./wiki
           git config --global user.email "cibucristi1@gmail.com"
           git config --global user.name "cibucristi"
           git status
