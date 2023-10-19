@@ -28,7 +28,7 @@ jobs:
 
       - name: Create new_wiki directory
         run: |
-          mkdir ./wiki2/new_wiki
+          mkdir wiki2/new_wiki
         working-directory: wiki2
 
       - name: Move posts to new_wiki
