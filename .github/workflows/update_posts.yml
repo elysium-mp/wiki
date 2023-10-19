@@ -30,11 +30,11 @@ jobs:
         shell: bash
         run: |
           echo "damn"
-          ls -R ./wiki
-          mkdir ./wiki/new_wiki
-          mv -f ./posts/* ./wiki/new_wiki
+          ls -R ./wiki2
+          mkdir ./wiki2/new_wiki
+          mv -f ./posts/* ./wiki2/new_wiki
           rm -rf ./wiki2
-          mv -f ./wiki/new_wiki ./wiki2
+          mv -f ./wiki2/new_wiki ./wiki2
           cd wiki2
           git config --global user.email "elysium.mp@github.com"
           git config --global user.name "elysium.mp"
