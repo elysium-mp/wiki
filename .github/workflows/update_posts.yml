@@ -30,8 +30,8 @@ jobs:
         shell: bash
         run: |
           echo "damn"
-          ls -R ./wiki2
           mkdir ./wiki2/new_wiki
+          ls -R ./wiki2
           mv -f ./posts/* ./wiki2/new_wiki
           rm -rf ./wiki2
           mv -f ./wiki2/new_wiki ./wiki2
