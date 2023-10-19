@@ -29,6 +29,8 @@ jobs:
         if: always()
         shell: bash
         run: |
+          echo "damn"
+          ls -R ./wiki
           mkdir ./wiki/new_wiki
           mv -f ./posts/* ./wiki/new_wiki
           rm -rf ./wiki2
