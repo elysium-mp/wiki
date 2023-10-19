@@ -38,11 +38,8 @@ jobs:
           # Copy all files from "posts" to "new_wiki"
           cp -R ./posts/* ./wiki/new_wiki
       
-          # Remove the old "wiki" directory
-          rm -rf ./wiki/wiki
-      
-          # Move the "new_wiki" content back to the "wiki" directory
-          mv -f ./wiki/new_wiki/* ./wiki/
+          # Use rsync to synchronize the content from "new_wiki" into "wiki"
+          rsync -a ./wiki/new_wiki/ ./wiki/
       
           cd wiki
       
