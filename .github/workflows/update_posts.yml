@@ -31,8 +31,8 @@ jobs:
         run: |
           mkdir ./wiki/new_wiki
           mv -f ./posts/* ./wiki/new_wiki
-          rm -rf ./wiki
-          mv -f ./wiki/new_wiki ./wiki
+          rm -rf ./wiki/wiki
+          mv -f ./wiki/new_wiki ./wiki/wiki
           cd wiki
           git config --global user.email "elysium.mp@github.com"
           git config --global user.name "elysium.mp"
