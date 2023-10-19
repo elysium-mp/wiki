@@ -37,14 +37,22 @@ jobs:
       
           # Copy all files from "posts" to "new_wiki"
           cp -R ./posts/* ./wiki/new_wiki
-
-          mv -f ./wiki/new_wiki ./wiki
+      
+          # Remove the old "wiki" directory
+          rm -rf ./wiki/wiki
+      
+          # Move the "new_wiki" content back to the "wiki" directory
+          mv -f ./wiki/new_wiki/* ./wiki/
       
           cd wiki
+      
+          # Set Git user email and name
           git config --global user.email "elysium.mp@github.com"
           git config --global user.name "elysium.mp"
-          git status
+      
+          # Commit all changes in "wiki"
           git add .
           git commit -m "Update posts with ${{ github.sha }}" || true
-          git push || true
-
+      
+          # Push the changes to the "main" branch of the current repository
+          git push origin main || true
