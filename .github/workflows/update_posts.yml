@@ -33,7 +33,6 @@ jobs:
           ls -R ./wiki
           mv -f ./wiki/.vitepress ./wiki/new_wiki
           mv -f ./posts/* ./wiki/new_wiki
-          rm -rf ./wiki
           mv -f ./wiki/new_wiki ./wiki
           cd wiki
           git config --global user.email "elysium.mp@github.com"
