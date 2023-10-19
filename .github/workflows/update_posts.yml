@@ -32,14 +32,11 @@ jobs:
           mkdir -p ./wiki/new_wiki
           echo "Let's see what's in the /wiki directory."
           ls -R ./wiki  # List contents of the ./wiki directory for debugging.
-          mv -f ./wiki/.vitepress ./wiki/new_wiki
-          mv -f ./wiki/public ./wiki/new_wiki
-          mv -f ./wiki/vite.config.ts ./wiki/new_wiki
+          mv -f ./wiki/public/* ./wiki/new_wiki
           mv -f ./posts/* ./wiki/new_wiki
-          rm -rf ./wiki/.vitepress  # Remove the old .vitepress folder.
-          rm -rf ./wiki/public      # Remove the old public folder.
-          rm -f ./wiki/vite.config.ts  # Remove the old vite.config.ts file.
-          mv -f ./wiki/new_wiki ./wiki/.vitepress
+          rm -rf ./wiki/public  # Remove the old public folder.
+          mv -f ./wiki/new_wiki/* ./wiki
+          rmdir ./wiki/new_wiki  # Remove the empty new_wiki directory.
           cd wiki
           git config --global user.email "elysium.mp@github.com"
           git config --global user.name "elysium.mp"
