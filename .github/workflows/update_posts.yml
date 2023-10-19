@@ -34,7 +34,11 @@ jobs:
           # Use rsync to synchronize and delete existing content in "wiki"
           rsync -av --delete ./wiki/new_wiki/ ./wiki/
           
-          rmdir ./wiki/new_wiki
+          # Check if "new_wiki" exists and remove it
+          if [ -d "./wiki/new_wiki" ]; then
+            rmdir ./wiki/new_wiki
+          fi
+          
           cd ./wiki
           
           git config --global user.email "elysium.mp@github.com"
