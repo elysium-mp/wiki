@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           clean: true
-          repository: "cibucristi/elysium-wiki-website"
+          repository: "elysium-mp/wiki-website"
           path: "wiki"
           ref: "main"
           token: ${{ secrets.CI_TOKEN }}
