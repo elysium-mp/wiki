@@ -3,12 +3,11 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main
-
+      - "main"
 jobs:
   update-posts:
     runs-on: ubuntu-latest
-    name: Update posts
+    name: "Update posts" 
     steps:
       - name: Clone posts repository
         uses: actions/checkout@v3
@@ -22,25 +21,24 @@ jobs:
         with:
           clean: true
           repository: "cibucristi/elysium-wiki-website"
-          path: "wiki2"
+          path: "wiki"
           ref: "main"
           token: ${{ secrets.CI_TOKEN }}
 
-      - name: Create new_wiki directory
+      - name: Update posts
+        if: always()
+        shell: bash
         run: |
-          mkdir wiki2/new_wiki
-        working-directory: wiki2
-
-      - name: Move posts to new_wiki
-        run: |
-          mv ../posts/* new_wiki/
-        working-directory: wiki2
-
-      - name: Commit and push changes
-        run: |
-          git config user.email "elysium.mp@github.com"
-          git config user.name "elysium.mp"
+          mkdir ./wiki/new_wiki
+          ls -R ./wiki
+          mv -f ./wiki/.vitepress ./wiki/new_wiki
+          mv -f ./posts/* ./wiki/new_wiki
+          rm -rf ./wiki
+          mv -f ./wiki/new_wiki ./wiki
+          cd wiki
+          git config --global user.email "elysium.mp@github.com"
+          git config --global user.name "elysium.mp"
+          git status
           git add .
           git commit -m "Update posts with ${{ github.sha }}" || true
           git push || true
-        working-directory: wiki2
