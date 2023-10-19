@@ -10,14 +10,14 @@ jobs:
     name: "Update posts" 
     steps:
       - name: Clone posts repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
         with:
           clean: true
           path: "posts"
           token: ${{ secrets.CI_TOKEN }}
 
       - name: Clone wiki repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
         with:
           clean: true
           repository: "cibucristi/elysium-wiki-website"
@@ -29,18 +29,11 @@ jobs:
         if: always()
         shell: bash
         run: |
-          mkdir -p ./wiki/new_wiki
-          
-          # Use rsync to synchronize and delete existing content in "wiki"
-          rsync -av --delete ./wiki/new_wiki/ ./wiki/
-          
-          # Check if "new_wiki" exists and remove it
-          if [ -d "./wiki/new_wiki" ]; then
-            rmdir ./wiki/new_wiki
-          fi
-          
-          cd ./wiki
-          
+          mkdir ./wiki/new_wiki
+          mv -f ./posts/* ./wiki/new_wiki
+          rm -rf ./wiki/wiki
+          mv -f ./wiki/new_wiki ./wiki/wiki
+          cd wiki
           git config --global user.email "elysium.mp@github.com"
           git config --global user.name "elysium.mp"
           git status
