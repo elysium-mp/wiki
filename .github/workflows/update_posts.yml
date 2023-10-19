@@ -30,7 +30,7 @@ jobs:
         shell: bash
         run: |
           mkdir -p ./wiki/new_wiki
-          rm -r ./wiki/factions/*
+          rm -rf ./wiki/*
           
           mv -f ./posts/* ./wiki/new_wiki
           mv -f ./wiki/new_wiki/* ./wiki
