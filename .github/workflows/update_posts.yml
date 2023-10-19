@@ -31,13 +31,13 @@ jobs:
         run: |
           mkdir ./wiki/new_wiki
           echo "Let's see ce i debiteaza mintea"
-          ls -R ./wiki/wiki/wiki
-          mv -f ./wiki/wiki/wiki/.vitepress ./wiki/new_wiki
-          mv -f ./wiki/wiki/wiki/public ./wiki/new_wiki
-          mv -f ./wiki/wiki/wiki/vite.config.ts ./wiki/new_wiki
+          ls -R ./wiki
+          mv -f ./wiki/wiki/.vitepress ./wiki/new_wiki
+          mv -f ./wiki/wiki/public ./wiki/new_wiki
+          mv -f ./wiki/wiki/vite.config.ts ./wiki/new_wiki
           mv -f ./posts/* ./wiki/new_wiki
-          rm -rf ./wiki/wikiwiki
-          mv -f ./wiki/new_wiki ./wiki/wiki/wiki
+          rm -rf ./wiki/wiki
+          mv -f ./wiki/new_wiki ./wiki/wiki
           cd wiki
           git config --global user.email "elysium.mp@github.com"
           git config --global user.name "elysium.mp"
